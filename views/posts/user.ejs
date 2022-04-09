@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<body>
+<h2>User's Post Page</h2>
+
+<h3>Create a post:</h3>
+
+<% if (user && user._id.equals(user._id)) { %>
+    <form action="/user/posts" method="POST">
+      <input type="text" name="userPost" placeholder="type a post here!">
+      <button type="submit">ADD NEW POST</button>
+    </form>
+<% } %>
+
+
+<h3>Posts made by you:</h3>
+
+<% if (user.posts) {%> 
+  <ul>
+    <% user.posts.forEach(function(p){ %> 
+      <li><a href="/user/<%= user.id %>/posts/<%= p.id %>"><%= p.userPost %> | created on <%= p.createdAt.toLocaleDateString() %></a>
+        <% if (user && user._id.equals(user._id)) { %>
+      <form action="/user/posts/<%= p._id %>?_method=PUT" method="POST">
+        <input type="text" name="userPost" placeholder="edit this post">
+        <button type="submit">EDIT POST</button>
+      </form>
+      <% } %>
+
+        <form action="/user/posts/<%= p.id %>?_method=DELETE" method="POST"> 
+        <button type="submit" name="postDeleteButton">DELETE POST</button></form></li><br>
+    <% }) %>
+  </ul>
+<% } %>
+
+
+</body>
+</html>

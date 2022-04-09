@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <nav>
+
+    <a href="/">|HOME|</a>
+    <a href="/user/profile">|MY PROFILE|</a>
+    <a href="/public">|ALL POSTS|</a>
+    <a href="/about">|ABOUT|</a>
+
+
+    <% if (user) { %>
+      <a href="/logout">|LOG OUT|</a>
+    <% } else { %>
+      <a href="/auth/google">|LOG IN|</a>
+    <% } %>
+
+  </nav>
+  <br><br>

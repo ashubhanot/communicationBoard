@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h2>All Public Posts</h2>
+
+
+<% for (let i=0; i < user.length; i++){ %>
+    <% for(let j=0; j < user[i].posts.length; j++) { %>
+        <a href="/user/<%= user[i].id %>/posts/<%= user[i].posts[j].id %>">
+        <%= user[i].posts[j].userPost %> <h>  | by </h> <%= user[i].name %> <h>  | created on </h> <%= user[i].posts[j].createdAt %>
+<br>
+<% }} %>
+</a>
+
+
+</body>
+</html>
